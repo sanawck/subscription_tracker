@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Utilities",
+    "description": "Collection of rent, water, energy, gas, internet",
+    "needed_funding": 5000
+  },
+  {
+    "name": "Birthday",
+    "description": "hosting birthday party for Bob on Saturday. Need balloons, cake, food, drinks, cleaning supplies",
+    "needed_funding": 500
+  },
+  {
+    "name": "Dinner",
+    "description": "Everyone owes for dinner. Total was $200.",
+    "needed_funding": 200
+  }
+]
