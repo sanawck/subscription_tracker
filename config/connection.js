@@ -10,6 +10,7 @@ sequelize = new Sequelize(process.env.JAWSDB_URL);
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
+    process.env.SESSION_SECRET,
     {
       host: 'localhost',
       dialect: 'mysql',
