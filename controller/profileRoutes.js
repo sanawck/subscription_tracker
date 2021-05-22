@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Events, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req,res) => {
@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req,res) => {
             include: [{ model: Post }],
         });
         const user = userData.get({ plain: true });
-        res.render('dashboard', {
+        res.render('/profile', {
             ...user,
             logged_in: req.session.logged_in,
             logged_name: req.session.logged_name,
@@ -27,7 +27,7 @@ router.get('/newpost', withAuth, (req, res) => {
             });
             return;
         }
-        res.redirect('/dashboard');
+        res.redirect('/profile');
     } catch (error) {
         res.status(500).json(error);
     }
