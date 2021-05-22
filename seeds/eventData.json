@@ -1,17 +1,20 @@
 [
   {
-    "name": "Utilities",
+    "event_name": "Utilities",
     "description": "Collection of rent, water, energy, gas, internet",
-    "needed_funding": 5000
+    "date_created": "01/01/21",
+    "total_cost": 5000
   },
   {
-    "name": "Birthday",
+    "event_name": "Birthday",
     "description": "hosting birthday party for Bob on Saturday. Need balloons, cake, food, drinks, cleaning supplies",
-    "needed_funding": 500
+    "date_created": "02/07/21",
+    "total_cost": 500
   },
   {
-    "name": "Dinner",
+    "event_name": "Dinner",
     "description": "Everyone owes for dinner. Total was $200.",
-    "needed_funding": 200
+    "date_created": "03/01/21",
+    "total_cost": 200
   }
 ]
