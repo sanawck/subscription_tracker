@@ -26,6 +26,7 @@
       </div>
       <div class="form-group">
         <button type="add" class="btn btn-primary">Add Participants</button>
+      <input id="searchinput" name="search" class="input" type="text" placeholder="Add Participants here"</input>
       </div>
     </form>
   </div>
@@ -33,7 +34,6 @@
   {{#if projects.length}}
   <div class="col-md-6 project-list">
     <h3>Current Bills:</h3>
-
     {{#each projects as |project|}}
     <div class="row mb-2">
       <div class="col-md-8">
@@ -47,5 +47,5 @@
   </div>
   {{/if}}
 </div>
-
-<script src="./js/profile.js"></script>
+{{!-- 
+<script src="./js/profile.js"></script> --}}
