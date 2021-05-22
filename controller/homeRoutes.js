@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all events and JOIN with user data
-    const projectData = await Events.findAll({
+    const eventData = await Events.findAll({
       include: [
         {
           model: User,
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/event/:id', async (req, res) => {
   try {
     const eventData = await Events.findByPk(req.params.id, {
       include: [
@@ -38,9 +38,9 @@ router.get('/project/:id', async (req, res) => {
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const events = eventData.get({ plain: true });
 
-    res.render('project', {
+    res.render('events', {
       ...events,
       logged_in: req.session.logged_in
     });
