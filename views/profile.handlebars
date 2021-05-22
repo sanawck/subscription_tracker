@@ -7,7 +7,6 @@
 <div class="row mt-4">
   <div class="col-md-6">
     <h3>Create a New Bill:</h3>
-
     <form class="form new-events-form">
       <div class="form-group">
         <label for="events-name">event name:</label>
@@ -26,6 +25,7 @@
       </div>
       <div class="form-group">
         <button type="add" class="btn btn-primary">Add Participants</button>
+      <input id="searchinput" name="search" class="input" type="text" placeholder="Add Participants here"</input>
       </div>
     </form>
   </div>
@@ -33,7 +33,6 @@
   {{#if events.length}}
   <div class="col-md-6 events-list">
     <h3>Current Bills:</h3>
-
     {{#each events as |event|}}
     <div class="row mb-2">
       <div class="col-md-8">
@@ -47,6 +46,5 @@
   </div>
   {{/if}}
 </div>
-
 <script src="../public/js/profile.js"></script>
 <script src="../public/js/events.js"></script>
