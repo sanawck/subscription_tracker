@@ -17,6 +17,9 @@
   "bugs": {
     "url": "https://github.com/sanawck/subscription_tracker/issues"
   },
+
+  "homepage": "https://github.com/sanawck/subscription_tracker#readme"
+=======
   "homepage": "https://github.com/sanawck/subscription_tracker#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -29,4 +32,5 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2"
   }
+
 }
