@@ -1,7 +1,10 @@
 DROP DATABASE IF EXISTS splitter_db;
 CREATE DATABASE splitter_db;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin
 
 -- user (
 --     id INT NOT NULL,
@@ -36,3 +39,8 @@ CREATE DATABASE splitter_db;
 --     }
 -- }
 
+<<<<<<< HEAD
+=======
+USE splitter_db;
+
+>>>>>>> origin
