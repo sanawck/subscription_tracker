@@ -1,8 +1,6 @@
 DROP DATABASE IF EXISTS splitter_db;
 CREATE DATABASE splitter_db;
 
-
-
 -- user (
 --     id INT NOT NULL,
 --     name VARCHAR,
@@ -35,4 +33,6 @@ CREATE DATABASE splitter_db;
 --         this.username=username;
 --     }
 -- }
+
+USE splitter_db;
 

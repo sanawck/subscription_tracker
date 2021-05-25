@@ -1,15 +1,18 @@
 const router = require('express').Router();
-const { Events, User, Memberships } = require('../../models');//Mike
+
+const { Events, User, Memberships } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newEvent = await Events.create({//Mike
+
+    const newEvent = await Events.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newEvent);//Mike
+    res.status(200).json(newEvent);
+
   } catch (err) {
     res.status(400).json(err);
   }
@@ -17,14 +20,14 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const eventData = await Events.destroy({//Mike
+    const eventData = await Events.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!eventData) {//Mike
+    if (!eventData) {
       res.status(404).json({ message: 'No project found with this id!' });
       return;
     }
@@ -35,7 +38,6 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-//from Mike
 router.get('/', (req, res) => {
   Events.findAll({
     include: [
@@ -52,5 +54,6 @@ router.get('/', (req, res) => {
   })
 })
 //
+
 
 module.exports = router;

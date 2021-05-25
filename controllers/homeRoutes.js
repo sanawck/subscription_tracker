@@ -1,65 +1,52 @@
 const router = require('express').Router();
-const { Events, User } = require('../models');////////
+const {Events, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+router.get('/', async (req, res) => {
+  try {
+    // Get all events and JOIN with user data
+    const eventData = await Events.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
-// router.post('/api/users/login', async (req, res) => {
-//   try {
+    // Serialize data so the template can read it
+    const events = eventData.map((event) => event.get({ plain: true }));
 
-//   }
-// })
-// router.get('/profile', async (req, res) => {
-//   const userArr = 
-// }
-// router.get('/profile', async (req, res) => {
-//   const userArr = await User.findAll();
-// }
-
-router.get('/homepage', async (req, res) => {
-    try {
-      // Get all projects and JOIN with user data
-      const eventData = await Events.findAll({/////////////
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
-      });
-
-      // Serialize data so the template can read it
-      const events = eventData.map((event) => event.get({ plain: true }));//Mike
-
-      // Pass serialized data and session flag into template
-      res.render('homepage', { 
-        events, //Mike
-        logged_in: req.session.logged_in 
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      events, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.get('/event/:id', async (req, res) => {//Mike
-    try {
-      const eventData = await Events.findByPk(req.params.id, {//Mike
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
-      });
+router.get('/event/:id', async (req, res) => {
+  try {
+    const eventData = await Events.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
-      const event = eventData.get({ plain: true });//Mike
+    const events = eventData.get({ plain: true });
 
-      res.render('event', {//Mike
-        ...event,//Mike
-        logged_in: req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
+    res.render('events', {
+      ...events,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Use withAuth middleware to prevent access to route
@@ -90,6 +77,15 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 
     res.render('login');
+});
+
+
+router.get('/signup', (req, res) => {
+  if(req.session.logged_in) {
+      res.redirect('/');
+      return;
+  }
+  res.render('signup');
 });
 
 module.exports = router;
