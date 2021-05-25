@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
-//const { Events } = require('.');
+// const { Events } = require('.');
+
 const sequelize = require('../config/connection');
 
 class Events extends Model {}
@@ -14,27 +15,24 @@ Events.init(
     },
     event_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+      validate: {
+        notEmpty: true //Mike
+      }
     },
     description: {
       type: DataTypes.STRING,
+      defaultValue: 'no description'//Mike
     },
     date_created: {
       type: DataTypes.DATE,
-      allowNull: false,
-      // defaultValue: DataTypes.NOW,
+      allowNull: true,
+      // defaultValue: DataTypes.NOW, //also do for date_updated//Mike
     },
     total_cost: {
       type: DataTypes.INTEGER,
       // or FLOAT
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
+      allowNull: true,
     },
   },
   {
@@ -42,7 +40,7 @@ Events.init(
     // timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'event',
+    modelName: 'Events', 
   }
 );
 
