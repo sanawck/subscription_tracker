@@ -30,17 +30,17 @@
     </form>
   </div>
 
-  {{#if projects.length}}
+  {{#if events.length}}{{!-- Mike --}}
   <div class="col-md-6 project-list">
     <h3>Current Bills:</h3>
 
-    {{#each projects as |project|}}
+    {{#each projects as |event|}}{{!-- Mike --}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h4><a href="/project/{{event.id}}">{{event.name}}</a></h4>{{!-- Mike --}}
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{event.id}}">DELETE</button>{{!-- Mike --}}
       </div>
     </div>
     {{/each}}
