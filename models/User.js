@@ -7,7 +7,8 @@ class User extends Model {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
-
+//belongs to many memberships
+//has many groups through memberships
 User.init(
   {
     id: {
