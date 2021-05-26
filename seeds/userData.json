@@ -2,8 +2,7 @@
   {
     "name": "Sal",
     "email": "sal@hotmail.com",
-    "password": "1234",
-    "events_id": 
+    "password": "1234"
   },
   {
     "name": "Lernantino",
@@ -14,27 +13,5 @@
     "name": "Amiko",
     "email": "amiko2k20@aol.com",
     "password": "1234"
-  }
-]
-
-
-[
-  {
-    "id": 1, 
-    "name": "Mike",
-    "email": "mike@mail.com",
-    "password": "1234",
-    "createdAt": "",
-    "updatedAt": "",
-    "events": [
-      {
-        "id": 2,
-        "name": "Test Event 2"
-      },
-      {
-        "id": 4,
-        "name": "Test Event 4"
-      }
-    ]
   }
 ]

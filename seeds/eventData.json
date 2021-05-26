@@ -3,8 +3,7 @@
     "event_name": "Utilities",
     "description": "Collection of rent, water, energy, gas, internet",
     "date_created": "01/01/21",
-    "total_cost": 5000,
-    "user_id": 
+    "total_cost": 5000
   },
   {
     "event_name": "Birthday",

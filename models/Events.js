@@ -1,10 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-<<<<<<< HEAD
-//const { Events } = require('.');
-=======
-// const { Events } = require('.');
 
->>>>>>> origin
 const sequelize = require('../config/connection');
 
 class Events extends Model {}
