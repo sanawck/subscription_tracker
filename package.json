@@ -18,8 +18,6 @@
     "url": "https://github.com/sanawck/subscription_tracker/issues"
   },
 
-  "homepage": "https://github.com/sanawck/subscription_tracker#readme"
-=======
   "homepage": "https://github.com/sanawck/subscription_tracker#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
