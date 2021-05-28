@@ -3,7 +3,7 @@ const { Events, User, Memberships } = require("../models");
 const withAuth = require("../utils/auth");
 
 
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     // Get all events and JOIN with user data
     const eventsData = await Events.findAll({
@@ -11,6 +11,8 @@ router.get("/", async (req, res) => {
         {
           model: User,
           attributes: ["name"],
+          through: Memberships, 
+          as: 'participants' 
         },
       ],
     });
@@ -28,7 +30,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/events/:id", async (req, res) => {
+router.get("/events/:id", withAuth, async (req, res) => {
   try {
     const eventsData = await Events.findByPk(req.params.id, {
       include: [
@@ -51,6 +53,10 @@ router.get("/events/:id", async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
+// router.post('/')
+
+
+
 
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
