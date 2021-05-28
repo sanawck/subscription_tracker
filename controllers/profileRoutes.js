@@ -2,10 +2,10 @@ const router = require("express").Router();
 const { Events, User, Memberships } = require("../models");
 const withAuth = require("../utils/auth");
 
-router.get("/newpost", withAuth, (req, res) => {
+router.get("/events", withAuth, (req, res) => {
   try {
     if (req.session.logged_in) {
-      res.render("new-post", {
+      res.render("events", {
         logged_in: req.session.logged_in,
       });
       return;

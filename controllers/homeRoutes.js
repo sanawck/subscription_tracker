@@ -37,6 +37,8 @@ router.get("/events/:id", withAuth, async (req, res) => {
         {
           model: User,
           attributes: ["name"],
+          through: Memberships, 
+          as: 'participants' 
         },
       ],
     });

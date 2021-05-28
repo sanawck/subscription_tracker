@@ -2,7 +2,7 @@ async function newEventFormHandler(event) {
     event.preventDefault();
   
     const event_name = document.querySelector('input[name="events-name"]').value;
-    const description = document.querySelector('textarea[name="events-desc"]').value;
+    const description = document.querySelector('input[name="events-desc"]').value;
     const total_cost = document.querySelector('input[name="events-cost"]').value;
     
     const response = await fetch(`/api/events`, {
