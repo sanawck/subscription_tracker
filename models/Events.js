@@ -16,12 +16,12 @@ Events.init(
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
-        notEmpty: true //Mike
+        notEmpty: true 
       }
     },
     description: {
       type: DataTypes.STRING,
-      defaultValue: 'no description'//Mike
+      defaultValue: 'no description'
     },
     date_created: {
       type: DataTypes.DATE,
