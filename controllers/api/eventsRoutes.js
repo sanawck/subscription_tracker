@@ -43,10 +43,11 @@ router.get('/', (req, res) => {
       {
         model: User,
         through: Memberships,
+        // as: 'participants'
       },
     ],
   })
-  .then((eventData) => res.render("homepage.handlebars", eventData))//res.render takes .json array and renders info through handlebars
+  .then((eventData) => res.render("handlebarname", eventData))//res.render takes .json array and renders info through handlebars
   .catch((err) => {
     console.log(err);
     res.status(500).json(err)
