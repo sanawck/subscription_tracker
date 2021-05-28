@@ -12,7 +12,7 @@ Memberships.init(
     primaryKey: true,
     autoIncrement: true,
   },
-  userId: {
+  user_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
@@ -20,7 +20,7 @@ Memberships.init(
       key: 'id',
     },
   },
-  eventsId: {
+  events_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
