@@ -1,16 +1,16 @@
-async function newFormHandler(event) {
+async function newEventFormHandler(event) {
     event.preventDefault();
   
-    const title = document.querySelector('input[name="events-title"]').value;
-    const description = document.querySelector('input[name="events-desc"]').value;
-    const cost = document.querySelector('input[name="events-cost"]').value;
+    const event_name = document.querySelector('input[name="events-name"]').value;
+    const description = document.querySelector('textarea[name="events-desc"]').value;
+    const total_cost = document.querySelector('input[name="events-cost"]').value;
     
     const response = await fetch(`/api/events`, {
       method: 'POST',
       body: JSON.stringify({
-        title,
+        event_name,
         description,
-        cost
+        total_cost
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -24,4 +24,4 @@ async function newFormHandler(event) {
     }
   };
   
-document.querySelector('#new-events-form').addEventListener('submit', newFormHandler);
+document.querySelector('#new-events-form').addEventListener('submit', newEventFormHandler);
