@@ -19,17 +19,3 @@ sequelize = new Sequelize(
 };
 
 module.exports = sequelize;
-
-
-// process.env.DB_HOST,
-// process.env.SESSION_SECRET,
-
-// host: "localhost",
-//       dialect: "mysql",
-//DB_HOST=localhost
-//SESSION_SECRET='super secret secret'
-
-
-
-
-//console.log(process)
