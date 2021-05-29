@@ -1,11 +1,14 @@
+
 const { Model, DataTypes } = require("sequelize");
 // const bcrypt = require('bcrypt');
 const sequelize = require("../config/connection");
+
 
 class Memberships extends Model {}
 
 Memberships.init(
   {
+
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

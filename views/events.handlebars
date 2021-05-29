@@ -21,7 +21,7 @@
   <h2>{{events_name}}</h2>
 
   <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  {{!-- <p>Created by {{events.user.name}} on {{format_date events.createdAt}}</p> --}}
   <p>
     <span for="img" aria-label="money">💲</span>
 
@@ -29,7 +29,9 @@
     needed
   </p>
   <p>
+
     <button id= "split-bill" class="btn btn-primary"Split this bill"</button>
+
 
   </p>
 </div>

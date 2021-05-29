@@ -1,3 +1,4 @@
+
 const User = require("./User");
 const Events = require("./Events");
 const Memberships = require("./Memberships");
@@ -39,3 +40,4 @@ module.exports = { User, Events, Memberships };
 // });
 
 // module.exports = { User, Events };
+

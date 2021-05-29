@@ -1,6 +1,8 @@
+
 const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection");
+
 
 class Events extends Model {}
 
@@ -16,12 +18,20 @@ Events.init(
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
+
         notEmpty: true,
       },
     },
     description: {
       type: DataTypes.STRING,
       defaultValue: "no description",
+        notEmpty: true 
+      }
+    },
+    description: {
+      type: DataTypes.STRING,
+      defaultValue: 'no description'
+
     },
     date_created: {
       type: DataTypes.DATE,
@@ -39,7 +49,9 @@ Events.init(
     // timestamps: false,
     freezeTableName: true,
     underscored: true,
+
     modelName: "Events",
+
   }
 );
 
