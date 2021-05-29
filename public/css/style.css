@@ -1,0 +1,15 @@
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+.login-label {
+  width: 70px;
+  text-align: right;
+}
+
+.profile-label {
+  width: 130px;
+  text-align: right;
+  vertical-align: top;
+}
