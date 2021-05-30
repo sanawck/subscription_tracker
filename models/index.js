@@ -1,53 +1,43 @@
-const User = require('./User');
-const Events = require('./Events');
-const Memberships = require('./Memberships');
 
-
+const User = require("./User");
+const Events = require("./Events");
+const Memberships = require("./Memberships");
 
 // User.associate = (models) => {
-  User.belongsToMany(Events, {
-    through: {
-      model: Memberships,
-      unique: false
-    },
-      as: 'memberships',
-      foreignKey: 'user_id'
-  });
+User.belongsToMany(Events, {
+  through: {
+    model: Memberships,
+    unique: false,
+  },
+  as: "memberships",
+  foreignKey: "user_id",
+});
 // };
 
 // Events.associate = (models) => {
-  Events.belongsToMany(User, {
-    through: {
-      model: Memberships,
-      unique: false
-    },
-      as: 'participants',
-      foreignKey: 'events_id'
-  });
+Events.belongsToMany(User, {
+  through: {
+    model: Memberships,
+    unique: false,
+  },
+  as: "participants",
+  foreignKey: "events_id",
+});
 // };
-
 
 module.exports = { User, Events, Memberships };
 
+// const User = require('./User');
+// const Events = require('./Events');
 
+// User.hasMany(Events, {
+//   foreignKey: 'user_id',
+//   // onDelete: 'CASCADE'
+// });
 
+// Events.belongsTo(User, {
+//   foreignKey: 'user_id'
+// });
 
-// // User.associate = (models) => {
-//   User.belongsToMany(Events, {
-//     through: 'Memberships',
-//     as: 'User',
-//     foreignKey: 'userId'
-//   });
-// // };
+// module.exports = { User, Events };
 
-// // Events.associate = (models) => {
-//   Events.belongsToMany(User, {
-//     through: 'Memberships',
-//     as: 'Events',
-//     foreignKey: 'eventsId'
-//   });
-// // };
-
-//   User.hasMany(Events, {
-//     foreignKey: 'user_id' //can be creator_id. doesn't have to be user_id
-//   }) //in the routes, will need an "include"

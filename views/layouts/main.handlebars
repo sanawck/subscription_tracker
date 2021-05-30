@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,9 +20,9 @@
         <span role="img" aria-label="money">💸</span>
         <a href="/">Bill Splitter</a>
       </h1>
-      <nav>
+      <nav> --}}
         <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
+        {{!-- {{#if logged_in}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
@@ -44,5 +44,131 @@
 
   {{/if}}
 </body>
-<script src="/js/logout.js"></script>
-</html>
+<script src="/js/logout.js"></script> 
+</html> --}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bill Split!</title>  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.scss">
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<hr>
+ {{!-- <div class="col center"></div>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center"> --}}
+   {{!-- <section class="jumbotron">
+     <div class="col center"></div>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center">
+     <img class="img-responsive align-center display-flex " src="Bill1.png" alt="Chania" width="600" height="200">
+    <hr />
+     </div>
+    </section> --}}
+        <!-- Conditionally render login or logout links -->
+        <!-- {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}} -->
+         <!-- Button trigger modal -->
+   {{!-- <div class="col text-center">
+  <button type="button" class="btn btn-primary bg-dark" data-toggle="modal" data-target=".bd-example-modal-xl">Sign Up</button>
+<button type="button" class="btn btn-primary bg-dark" data-toggle="modal" data-target=".bd-example-modal-lg">Login</button>
+</div> --}}
+<!-- {{/if}} -->
+
+      </nav>
+    </header>
+    </div>
+  </div>
+</nav>
+
+<main>
+ {{{ body }}}
+<!-- Extra large modal -->
+<span class="badge rounded-pill bg-light text-dark">
+<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="col-md-6">
+    <h2>Sign Up</h2>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">First | Last Name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="form-group">
+        <label for="email-signup">Email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">Password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary bg-dark" type="submit">signup</button>
+      </div>
+    </form>
+    </div>
+    </div>
+  </div>
+</div>
+</span>
+<!-- Large modal -->
+
+<span class="badge rounded-pill bg-light text-dark">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="row">
+  <div class="col-md-6">
+    <h2>Login</h2>
+<form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">Email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">Password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div> 
+      <div class="form-group">
+        <button class="btn btn-primary bg-dark" type="submit">login</button>
+      </div>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>
+ </span>
+ 
+ </main>
+    {{!-- <footer>
+       <div class="col text-center">
+      <div class="clearfix">
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">An easy way to split costs</h1>
+    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quidem tempora earum officia. Nihil, provident eveniet asperiores impedit non aliquid? Expedita adipisci est cupiditate blanditiis ab quia minima? Cumque, odio.</p>
+  </div>
+</div>
+</div>
+    </footer> --}}
+  </div>
+
+</body>
+<script src="./js/login.js"></script>
+<script src="/js/logout.js"></script> 
+
+</html>  
