@@ -1,4 +1,4 @@
-<!-- Loop over each object in the projects array -->
+<!-- Loop over each object in the events array -->
 {{#each events as |event| }}
 
 <div class="row mb-4 project">
@@ -7,10 +7,10 @@
       <a href="/events/{{event.id}}">{{event.event_name}}</a>
     </h2>
     <p>
-      <span class="dollar-amount">{{format_amount event.total_cost}}</span>
+      <span class="dollar-amount">${{format_amount event.total_cost}}</span>
       needed!
     </p>
-    <p>Created by {{event.user.name}} on {{format_date event.createdAt}}</p>
+    <p>Created by {{name}} on {{format_date event.createdAt}}</p> {{!-- event. --}}
   </div>
   <div class="col-md-7">
     <p>

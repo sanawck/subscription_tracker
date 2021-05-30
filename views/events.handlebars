@@ -3,11 +3,11 @@
   <h2>{{event_name}}</h2>
 
   <p>{{description}}</p>
-  {{!-- <p>Created by {{events.user.name}} on {{format_date events.createdAt}}</p> --}}
+  {{!-- {{<p>Created by {{events.user.name}} on {{format_date events.createdAt}}</p>--}}
   <p>
     <span for="img" aria-label="money">💲</span>
 
-    <span class="dollar-amount">{{format_amount total_cost}}</span>
+    <span class="dollar-amount">${{format_amount total_cost}}</span>
     needed
   </p>
   <p>
@@ -15,4 +15,4 @@
 
   </p>
 </div>
-<script src="./js/events.js"></script>
+<script src="/js/events.js"></script>

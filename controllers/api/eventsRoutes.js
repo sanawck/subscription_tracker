@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req, res) => {
   try {
 
-    const newEvents = await Events.create({//////////
+    const newEvents = await Events.create({
       ...req.body,
       user_id: req.session.user_id,
     });
@@ -43,11 +43,11 @@ router.get('/', (req, res) => {
       {
         model: User,
         through: Memberships,
-        // as: 'participants'
+        as: 'participants' //was commented out before?
       },
     ],
   })
-  .then((eventData) => res.render("handlebarname", eventData))//res.render takes .json array and renders info through handlebars
+  .then((eventData) => res.render("events", eventData))//res.render takes .json array and renders info through handlebars
   .catch((err) => {
     console.log(err);
     res.status(500).json(err)
