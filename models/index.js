@@ -1,7 +1,18 @@
+// const { DataTypes } = require('sequelize/types');
+// const sequelize = require('../config/connection');
+// const DataTypes = 
+const User = require('./User'); //sequelize.define('user', {});
+const Events = require('./Events');   //sequelize.define('events', {});
+const Memberships = require('./Memberships');            //sequelize.define('memberships', {
+  //status: DataTypes.STRING
+//});
 
-const User = require("./User");
-const Events = require("./Events");
-const Memberships = require("./Memberships");
+// User.belongsToMany(Events, { as: "Groups", through: "memberships", foreignKey: "user_id"})
+// Events.belongsToMany(User, { as: "Members", through: "memberships", foreignKey: "events_id"})
+
+// User.belongsToMany(Events, { as: "Groups", through: "memberships", foreignKey: "user_id", otherKey: "events_id" })
+
+
 
 // User.associate = (models) => {
 User.belongsToMany(Events, {

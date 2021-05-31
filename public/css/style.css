@@ -8,18 +8,20 @@
   text-align: right;
 }
 
+.signup-label {
+  width: 70px;
+  text-align: right;
+}
+
 .profile-label {
   width: 130px;
   text-align: right;
   vertical-align: top;
 }
 
-
-
-
 /* header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
-}
+} */
 
 .no-button {
   background: none;
@@ -40,4 +42,4 @@
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
-} */
+}

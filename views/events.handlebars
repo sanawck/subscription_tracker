@@ -3,11 +3,11 @@
   <h2>{{event_name}}</h2>
 
   <p>{{description}}</p>
-  {{!-- {{<p>Created by {{events.user.name}} on {{format_date events.createdAt}}</p>--}}
+  {{!-- <p>Created by {{events.user.name}} on {{format_date events.createdAt}}</p> --}}
   <p>
     <span for="img" aria-label="money">💲</span>
 
-    <span class="dollar-amount">${{format_amount total_cost}}</span>
+    <span class="dollar-amount">{{format_amount total_cost}}</span>
     needed
   </p>
   <p>
@@ -17,9 +17,7 @@
 </div>
 <script src="./js/events.js"></script>
 {{!-- <div class="text-center">
-
   <h2>{{events_name}}</h2>
-
   <p>{{description}}</p>
   {{!-- <p>Created by {{events.user.name}} on {{format_date events.createdAt}}</p> --}}
   <p>
@@ -31,13 +29,9 @@
   <p>
 
     <button id= "split-bill" class="btn btn-primary"Split this bill"</button>
-
-
   </p>
 </div>
 <script src="./js/events.js"></script> --}}
-
-
 {{!-- <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
@@ -64,23 +58,17 @@
     <small class="text-muted">And some muted small print.</small>
   </a>
 </div>
-
-
 {{!-- <div class="text-center">
-
   <h2>{{events_name}}</h2>
-
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>
     <span for="img" aria-label="money">💲</span>
-
     <span class="dollar-amount">{{format_amount total_cost}}</span>
     needed
   </p>
   <p>
     <button id= "split-bill" class="btn btn-primary"Split this bill</button>
-
   </p>
 </div> --}}
 {{!-- <script src="./js/events.js"></script> --}} 

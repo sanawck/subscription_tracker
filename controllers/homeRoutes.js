@@ -10,10 +10,11 @@ router.get("/", withAuth, async (req, res) => {
     const eventsData = await Events.findAll({
       include: [
         {
-          model: User,
-          attributes: ["name"],
-
-          through: Memberships,
+          model: Memberships,
+          through: {
+            attributes: ["user_id", "events_id"],
+            where: {completed: true}
+          },
           as: "participants",
         },
       ],

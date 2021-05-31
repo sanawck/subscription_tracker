@@ -1,4 +1,4 @@
-<!-- Loop over each object in the events array -->
+<!-- Loop over each object in the projects array -->
 {{#each events as |event| }}
 
 <div class="row mb-4 project">
@@ -8,10 +8,10 @@
 
     </h2>
     <p>
-      <span class="dollar-amount">${{format_amount event.total_cost}}</span>
+      <span class="dollar-amount">{{format_amount event.total_cost}}</span>
       needed!
     </p>
-    <p>Created by {{name}} on {{format_date event.createdAt}}</p> {{!-- event. --}}
+    <p>Created by {{event.user.name}} on {{format_date event.createdAt}}</p>
   </div>
   <div class="col-md-7">
     <p>
@@ -24,7 +24,6 @@
 
 {{!-- <!-- Loop over each object in the projects array -->
 {{#each events as |event| }}
-
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
@@ -46,12 +45,10 @@
 
 {{!-- <!-- Loop over each object in the projects array -->
 {{#each events as |event| }}
-
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
       <a href="/eventst/{{events.id}}">{{events.name}}</a>
-
     </h2>
     <p>
       <span class="dollar-amount">{{format_amount event.total_cost}}</span>
