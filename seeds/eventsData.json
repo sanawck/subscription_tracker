@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "event_name": "birthday",
+        "description": "it is my birthday",
+        "total_cost": 140
+    },
+    {
+        "event_name": "concert",
+        "description": "got tickets",
+        "total_cost": 200
+    },
+    {
+        "event_name": "football game",
+        "description": "tickets and parking",
+        "total_cost": 300
+    }
+]

@@ -1,6 +1,4 @@
-
 const router = require("express").Router();
-
 const { Events, User, Memberships } = require("../../models");
 const withAuth = require("../../utils/auth");
 const { route } = require("../homeRoutes");
@@ -25,9 +23,9 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 router.get("/user", withAuth, async (req, res) => {
-  Events.findAll({
+  Events.findAll({ //findAll
     where: {
-      "$participants->Memberships.user_id$": req.session.user_id,
+      "$`participants->Memberships`.`user_id`$": req.session.user_id,
     },
     include: [
       {
@@ -69,18 +67,17 @@ router.delete("/:id", withAuth, async (req, res) => {
 });
 
 
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   Events.findAll({
     include: [
       {
         model: User,
         through: Memberships,
-        as: 'participants' //was commented out before?
+        as: 'participants', //was commented out before?
       },
     ],
   })
-
-    .then((eventData) => res.render("handlebarname", eventData)) //res.render takes .json array and renders info through handlebars
+    .then((eventData) => res.render("profile.handlebars", eventData)) //res.render takes .json array and renders info through handlebars
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
