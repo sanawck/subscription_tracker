@@ -1,9 +1,7 @@
-
 const router = require("express").Router();
 
 const { Events, User, Memberships } = require("../../models");
 const withAuth = require("../../utils/auth");
-const { route } = require("../homeRoutes");
 
 router.post("/", withAuth, async (req, res) => {
   try {
@@ -18,7 +16,6 @@ router.post("/", withAuth, async (req, res) => {
       });
     });
     //res.status(200).json(newEvents);
-
   } catch (err) {
     res.status(400).json(err);
   }
@@ -47,7 +44,7 @@ router.get("/user", withAuth, async (req, res) => {
     });
 });
 
-router.delete("/:id", withAuth, async (req, res) => 
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const eventData = await Events.destroy({
       where: {
@@ -57,7 +54,6 @@ router.delete("/:id", withAuth, async (req, res) =>
     });
 
     if (!eventData) {
-
       res.status(404).json({ message: "No project found with this id!" });
       return;
     }
@@ -67,7 +63,6 @@ router.delete("/:id", withAuth, async (req, res) =>
     res.status(500).json(err);
   }
 });
-
 
 router.get("/", (req, res) => {
   Events.findAll({
@@ -184,4 +179,3 @@ module.exports = router;
 // });
 
 // module.exports = router;
-
