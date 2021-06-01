@@ -26,3 +26,8 @@ async function newEventFormHandler(event) {
   
 document.querySelector('.new-events-form').addEventListener('submit', newEventFormHandler);
 
+// function searchForUser(event) {
+  
+//   const user_find = 
+
+// }

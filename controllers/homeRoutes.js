@@ -22,7 +22,7 @@ router.get("/", withAuth, async (req, res) => {
 
     const events = eventsData.map((event) => event.get({ plain: true }));
 
-
+    console.log(events)
     // Pass serialized data and session flag into template
     res.render("homepage", {
       events,
