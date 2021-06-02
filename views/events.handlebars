@@ -1,7 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {{#if logged_in}}
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id='logout' href="#">Log Out</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="text-center">
 
   <h2>{{event_name}}</h2>
-
   <p>{{description}}</p>
   {{!-- <p>Created by {{events.user.name}} on {{format_date events.createdAt}}</p> --}}
   <p>
@@ -12,27 +35,21 @@
   </p>
   <p>
     <button id= "split-bill" class="btn btn-primary">Split this bill</button>
-
   </p>
 </div>
 <script src="./js/events.js"></script>
 {{!-- <div class="text-center">
 
-  <h2>{{events_name}}</h2>
 
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
+  <form class="form new-events-form">
+      <div class="form-group">
+        <button type="add" class="btn btn-dark">Add Participants</button>
+      <input id="adduserinput" name="search" class="input" type="text" placeholder="Add Participants here"</input>
+      </div>
+  </form>
 
-    <span class="dollar-amount">{{format_amount total_cost}}</span>
-    needed
-  </p>
-  <p>
-    <button id= "split-bill" class="btn btn-primary"Split this bill"</button>
-
-  </p>
 </div>
+
 <script src="./js/events.js"></script> --}}
 
 
@@ -82,3 +99,4 @@
   </p>
 </div> --}}
 {{!-- <script src="./js/events.js"></script> --}} 
+

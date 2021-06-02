@@ -5,7 +5,6 @@ const delButtonHandler = async (event) => {
     const response = await fetch(`/api/events/${id}`, {
       method: "DELETE",
     });
-
     if (response.ok) {
       document.location.replace("/profile");
     } else {
@@ -57,7 +56,6 @@ function loadEvents() {
       //empty the events
       const eventsList = $("#events");
       eventsList.empty();
-
       //build our list of events
       if (data && data.length > 0) {
         data.forEach((singleEvent) => {

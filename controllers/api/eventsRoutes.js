@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const { Events, User, Memberships } = require("../../models");
 const withAuth = require("../../utils/auth");
 const { route } = require("../homeRoutes");
@@ -55,6 +54,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     });
 
     if (!eventData) {
+
       res.status(404).json({ message: "No project found with this id!" });
       return;
     }

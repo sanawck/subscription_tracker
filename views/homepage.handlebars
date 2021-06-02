@@ -75,6 +75,7 @@
       </div>
     </div>
 <!-- Loop over each object in the projects array -->
+
 <div class="list-group" >
 {{#each events as |event| }}
 <a href="/events/{{event.id}}" class="list-group-item list-group-item-action" aria-current="true">
@@ -121,23 +122,26 @@
 {{/each}} --}}
 
 {{!-- <!-- Loop over each object in the projects array -->
+
 {{#each events as |event| }}
 
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
-      <a href="/eventst/{{events.id}}">{{events.name}}</a>
+      <a href="/events/{{id}}">{{event_name}}</a>
+
     </h2>
     <p>
-      <span class="dollar-amount">{{format_amount event.total_cost}}</span>
+      <span class="dollar-amount">{{format_amount total_cost}}</span>
       needed!
     </p>
-    <p>Created by {{events.user.name}} on {{format_date event.date_created}}</p>
+    <p>Created on {{format_date createdAt}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{events.description}}
+      {{description}}
     </p>
   </div>
 </div>
 {{/each}} --}}
+

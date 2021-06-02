@@ -1,52 +1,163 @@
+
 {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </div>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {{#if logged_in}}
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id='logout' href="#">Log Out</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="row">
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
-
+<div class="section">
+  <div class="container">
+    <div class="content">
+      <h1 class="title profile-title">{{ title }}</h1>
+    </div>
+    <!-- start of owner section -->
+    <div class="content">
+      <div class="card">
+        <div class="card-content">
+          {{!-- <h2 class="subtitle">Your Info</h2> --}}
+          <div class="columns">
+            <!-- name column -->
+            <div class="column">
+              <form>
+                <div class="field is-horizontal">
+                  <div class="field-body">
+                    <div class="field">
+                      <div class="control" id="nameControl"></div>
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="control">
+                  <div class="dropdown">
+                    <div class="dropdown-trigger">
+                      {{!-- <button type="submit" class="btn btn-primary">Your Events</button> --}}
+                        <span class="icon is-small">
+                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                      <div class="dropdown-content" id="userEventsDropdown">
+                        {{!-- dropdown goes here --}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card profile-dog-card">
+      <div class="card-content">
+        <div class="content dog-title-level">
+        </div>
+        <div class="content" id="dogContent">
+<div id='events' class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small>3 days ago</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small>And some small print.</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small class="text-muted">3 days ago</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small class="text-muted">And some muted small print.</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small class="text-muted">3 days ago</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small class="text-muted">And some muted small print.</small>
+  </a>
+</div>
 <div class="row mt-4">
   <div class="col-md-6">
     <h3>Create a New Bill:</h3>
+
     <form id="new-events-form" class="form new-events-form">
       <div class="form-group">
         <label for="events-name">event name:</label>
         <input class="form-input" type="text" id="events-name" name="events-name" />
       </div>
-      <div class="form-group">
-        <label for="events-cost">Total cost ($):</label>
+      <div class="form-group mb-2">
+        <label class="profile-label me-1" for="events-cost">Total cost ($):</label>
         <input class="form-input" type="number" id="events-cost" name="events-cost" />
       </div>
-      <div class="form-group">
-        <label for="events-desc">description:</label>
+      <div class="form-group mb-2">
+        <label class="profile-label me-1" for="events-desc">description:</label>
         <textarea class="form-input" id="events-desc" name="events-desc"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button id='create' class="btn btn-dark">Create</button>
       </div>
       <div class="form-group">
-        <button type="add" class="btn btn-primary">Add Participants</button>
+        <button type="add" class="btn btn-dark">Add Participants</button>
       <input id="searchinput" name="search" class="input" type="text" placeholder="Add Participants here"</input>
       </div>
     </form>
   </div>
-  {{#if events.length}}
-  <div class="col-md-6 events-list">
-    <h3>Current Bills:</h3>
-    {{#each events as |event|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/events/{{events.id}}">{{events.name}}</a></h4>
+        {{#if events.length}}
+        <div class="col-md-6 events-list">
+          <h3>Current Bills:</h3>
+          {{#each events as |event|}}
+          <div class="row mb-2">
+            <div class="col-md-8">
+              <h4><a href="/events/{{id}}">{{event_name}}</a></h4>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-sm btn-danger" data-id="{{id}}">DELETE</button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{/if}}
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{events.id}}">DELETE</button>
+      </div>
       </div>
     </div>
-    {{/each}}
   </div>
-  {{/if}}
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <script src="./js/profile.js"></script>
 <script src="./js/events.js"></script> --}}
 
@@ -217,3 +328,59 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <script src="./js/profile.js"></script>
 <script src="./js/events.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div id='events' class="list-group"> --}}
+          {{!-- <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Some placeholder content in a paragraph.</h5>
+              <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small>And some small print.</small>
+          </a>
+
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Some placeholder content in a paragraph.</h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small class="text-muted">And some muted small print.</small>
+          </a>
+
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Some placeholder content in a paragraph.</p>
+            <small class="text-muted">And some muted small print.</small>
+          </a> --}}
+
+        {{!-- </div> --}}

@@ -8,4 +8,10 @@ router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
 router.use("/profile", profileRoutes);
 
+router.get('/', (req, res) => {
+    res.status(200).json({ message: 'Connected' });
+});
+
+
 module.exports = router;
+
