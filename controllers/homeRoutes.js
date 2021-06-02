@@ -11,10 +11,9 @@ router.get("/", withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["name"],
-
+          // attributes: ["name"],
           through: Memberships,
-          as: "participants",
+          as: "participants"
         },
       ],
     });
@@ -23,7 +22,7 @@ router.get("/", withAuth, async (req, res) => {
 
     const events = eventsData.map((event) => event.get({ plain: true }));
 
-
+    console.log(events)
     // Pass serialized data and session flag into template
     res.render("homepage", {
       events,
@@ -41,7 +40,6 @@ router.get("/events/:id", withAuth, async (req, res) => {
         {
           model: User,
           attributes: ["name"],
-
           through: Memberships,
           as: "participants",
 
@@ -62,8 +60,6 @@ router.get("/events/:id", withAuth, async (req, res) => {
 
 // Use withAuth middleware to prevent access to route
 // router.post('/')
-
-
 
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route

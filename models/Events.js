@@ -18,7 +18,6 @@ Events.init(
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
-
         notEmpty: true,
       },
     },
@@ -26,18 +25,12 @@ Events.init(
       type: DataTypes.STRING,
       defaultValue: "no description",
         notEmpty: true 
-      }
     },
-    description: {
-      type: DataTypes.STRING,
-      defaultValue: 'no description'
-
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      // defaultValue: DataTypes.NOW, //also do for date_updated//Mike
-    },
+    // date_created: {
+    //   type: DataTypes.DATE,
+    //   allowNull: true,
+    //   // defaultValue: DataTypes.NOW, //also do for date_updated//Mike
+    // },
     total_cost: {
       type: DataTypes.INTEGER,
       // or FLOAT
@@ -49,9 +42,7 @@ Events.init(
     // timestamps: false,
     freezeTableName: true,
     underscored: true,
-
     modelName: "Events",
-
   }
 );
 

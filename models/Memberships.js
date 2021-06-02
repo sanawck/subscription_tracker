@@ -11,13 +11,13 @@ Memberships.init(
 
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull:false,
       primaryKey: true,
       autoIncrement: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: "User",
         key: "id",
@@ -25,7 +25,7 @@ Memberships.init(
     },
     events_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: "Events",
         key: "id",
@@ -42,3 +42,19 @@ Memberships.init(
 );
 
 module.exports = Memberships;
+
+
+
+
+// {
+//   "user_id": 1,
+//   "events_id": 1
+// },
+// {
+//   "user_id": 1,
+//   "events_id": 2
+// },
+// {
+//   "user_id": 1,
+//   "events_id": 3
+// }
