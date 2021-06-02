@@ -2,8 +2,6 @@ const router = require("express").Router();
 const { Events, User, Memberships } = require("../models");
 const withAuth = require("../utils/auth");
 
-
-
 router.get("/", withAuth, async (req, res) => {
   try {
     // Get all events and JOIN with user data
@@ -11,15 +9,14 @@ router.get("/", withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          // attributes: ["name"],
+          attributes: ["name"],
           through: Memberships,
-          as: "participants"
+          as: "participants",
         },
       ],
     });
 
     // Serialize data so the template can read it
-
     const events = eventsData.map((event) => event.get({ plain: true }));
 
     console.log(events)
@@ -42,7 +39,6 @@ router.get("/events/:id", withAuth, async (req, res) => {
           attributes: ["name"],
           through: Memberships,
           as: "participants",
-
         },
       ],
     });
@@ -70,6 +66,24 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 
+  // router.get('/profile', withAuth, async (req, res) => {
+  //     try {
+  //       // Find the logged in user based on the session ID
+  //       const userData = await User.findByPk(req.session.user_id, {
+  //         attributes: { exclude: ['password'] },
+  //         include: [{ model: Events }],
+  //       });
+
+  //       const user = userData.get({ plain: true });
+
+  //       res.render('profile', {
+  //         ...user,
+  //         logged_in: true
+  //       });
+  //     } catch (err) {
+  //       res.status(500).json(err);
+  //     }
+  //   });
 });
 
 router.get("/signup", (req, res) => {

@@ -1,8 +1,6 @@
-
 const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection");
-
 
 class Events extends Model {}
 
@@ -24,7 +22,11 @@ Events.init(
     description: {
       type: DataTypes.STRING,
       defaultValue: "no description",
-        notEmpty: true 
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      // defaultValue: DataTypes.NOW, //also do for date_updated//Mike
     },
     // date_created: {
     //   type: DataTypes.DATE,

@@ -1,7 +1,7 @@
-
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
+
     const response = await fetch(`/api/events/${id}`, {
       method: "DELETE",
     });
@@ -12,11 +12,14 @@ const delButtonHandler = async (event) => {
     }
   }
 };
+
 async function newEventFormHandler(event) {
   event.preventDefault();
+
   const event_name = document.querySelector("#events-name").value;
   const description = document.querySelector("#events-desc").value;
   const total_cost = document.querySelector("#events-cost").value;
+
   if (event_name && total_cost && description) {
     fetch(`/api/events`, {
       method: "POST",
@@ -40,9 +43,11 @@ async function newEventFormHandler(event) {
     alert("All fields are required");
   }
 }
+
 document
   .querySelector("#create")
   .addEventListener("click", newEventFormHandler);
+
 //when the page loads get all my events
 function loadEvents() {
   fetch("/api/events/user")
@@ -57,6 +62,7 @@ function loadEvents() {
           const rightNow = moment();
           const eventDate = moment(singleEvent.createdAt);
           const days = rightNow.diff(eventDate, "days");
+
           let text =
             '<a href="#" class="list-group-item list-group-item-action" aria-current="true"><div class="d-flex w-100 justify-content-between">';
           text += `<h5 class="mb-1">${singleEvent.event_name}</h5><small>${days} days ago</small></div>`;
@@ -67,24 +73,5 @@ function loadEvents() {
       }
     });
 }
+
 loadEvents();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

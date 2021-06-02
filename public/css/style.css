@@ -8,10 +8,11 @@
   text-align: right;
 }
 
-.signup-label {
+
+/* .signup-label {
   width: 70px;
   text-align: right;
-}
+} */
 
 .profile-label {
   width: 130px;
@@ -23,7 +24,7 @@
   border-bottom: 1px solid #ccc;
 } */
 
-.no-button {
+/* .no-button {
   background: none;
   border: none;
   padding: 0;
@@ -42,4 +43,5 @@
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
-}
+} */
+

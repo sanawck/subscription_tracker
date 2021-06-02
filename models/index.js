@@ -1,35 +1,27 @@
-const User = require('./User'); //sequelize.define('user', {});
-const Events = require('./Events');   //sequelize.define
-const Memberships = require('./Memberships');
-const sequelize = require('../config/connection')
+const User = require("./User");
+const Events = require("./Events");
+const Memberships = require("./Memberships");
 
-// User.belongsTo(User)
-// User.hasMany(Events)
-// Events.belongsTo(User)
-///?? 
+// User.associate = (models) => {
 User.belongsToMany(Events, {
-    as: 'members', 
-    through: Memberships,
-      unique: false,
-      foreignKey: "userId" 
+  through: {
+    model: Memberships,
+    unique: false,
+  },
+  as: "memberships",
+  foreignKey: "user_id",
 });
+// };
 
-
-Events.belongsToMany(User, { 
-    as: 'participants', 
-    through: Memberships,
-      unique: false,
-      foreignKey: "eventsId" 
+// Events.associate = (models) => {
+Events.belongsToMany(User, {
+  through: {
+    model: Memberships,
+    unique: false,
+  },
+  as: "participants",
+  foreignKey: "events_id",
 });
+// };
 
-
-
-// User.belongsToMany(User, { as: 'Friends', through: 'friends' });
-// User.belongsToMany(User, { as: 'Requesters', through: 'requests', foreignKey: 'requesterId', onDelete: 'CASCADE' })
-// User.belongsToMany(User, { as: 'Requestees', through: 'requests', foreignKey: 'requesteeId', onDelete: 'CASCADE' })
-
-
-
-module.exports = { Memberships, Events, User };
-
-
+module.exports = { User, Events, Memberships };
